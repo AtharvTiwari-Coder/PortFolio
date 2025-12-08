@@ -1,0 +1,189 @@
+:root {
+  --bg: #f4f6f9;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --info: #2563eb;
+  --radius: 10px;
+  --shadow: 0 6px 18px rgba(0,0,0,0.08);
+  --max-width: 960px;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* Header */
+.site-header {
+  background: var(--card);
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: var(--shadow);
+}
+
+.site-header .container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.nav a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+/* Layout */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.card h2 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+/* Form elements */
+.label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 600;
+}
+
+.input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+}
+
+.password-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn.small {
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  background: #e5e7eb;
+  color: var(--text);
+}
+
+.btn.small:hover {
+  background: #d1d5db;
+}
+
+/* Messages */
+.message {
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.message.success { color: var(--success); }
+.message.error { color: var(--danger); }
+.message.info { color: var(--info); }
+
+/* Guidance text */
+.muted {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.muted a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.muted a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--card);
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  padding: 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 32px;
+}
+
+/* Developer info block */
+pre {
+  background: #1f2937;
+  color: #f9fafb;
+  padding: 16px;
+  border-radius: var(--radius);
+  max-width: var(--max-width);
+  margin: 24px auto;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow);
+  white-space: pre-wrap;
+}
+
+/* Hidden/Visible states for smooth reveal */
+.hidden {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.visible {
+  display: block;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
