@@ -55,7 +55,7 @@
     }
     accounts.push({ name, password });
     saveAccounts(accounts);
-    return { created: true, message: "✅ Account created successfully. Please sign in." };
+    return { created: true, message: "✅ Account created successfully." };
   }
 
   // Sign In logic
