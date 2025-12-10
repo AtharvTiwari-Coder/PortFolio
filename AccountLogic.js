@@ -1,4 +1,3 @@
-// AccountLogic.js
 document.addEventListener("DOMContentLoaded", () => {
   // Developer credentials and protected account
   const DEV_NAME = "Atharv_Dev/Full";
@@ -17,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     el.className = "message" + (type ? " " + type : "");
   };
 
-  // Ensure protected accounts exist in localStorage
+  // Ensure protected accounts exist
   function ensureProtectedAccounts() {
     if (localStorage.getItem(PROTECTED_NAME) === null) {
       localStorage.setItem(PROTECTED_NAME, PROTECTED_PASS);
@@ -43,180 +42,143 @@ document.addEventListener("DOMContentLoaded", () => {
   togglePassword("signupConfirm", "toggleSignupConfirm");
 
   // Navigation between forms
-  const linkCreate = $("linkCreate");
-  const linkSignin = $("linkSignin");
-  if (linkCreate) {
-    linkCreate.addEventListener("click", (e) => {
-      e.preventDefault();
-      hide($("signin"));
-      show($("signup"));
-      setMsg("signinMessage", "", "");
-      setMsg("signupMessage", "", "");
-    });
-  }
-  if (linkSignin) {
-    linkSignin.addEventListener("click", (e) => {
-      e.preventDefault();
-      hide($("signup"));
-      show($("signin"));
-      setMsg("signinMessage", "", "");
-      setMsg("signupMessage", "", "");
-    });
-  }
+  $("linkCreate").addEventListener("click", e => {
+    e.preventDefault();
+    hide($("signin"));
+    show($("signup"));
+    setMsg("signinMessage", "", "");
+    setMsg("signupMessage", "", "");
+  });
+  $("linkSignin").addEventListener("click", e => {
+    e.preventDefault();
+    hide($("signup"));
+    show($("signin"));
+    setMsg("signinMessage", "", "");
+    setMsg("signupMessage", "", "");
+  });
 
   // Create account
-  const btnCreate = $("btnCreate");
-  if (btnCreate) {
-    btnCreate.addEventListener("click", () => {
-      const name = $("signupName").value.trim();
-      const password = $("signupPassword").value;
-      const confirm = $("signupConfirm").value;
+  $("btnCreate").addEventListener("click", () => {
+    const name = $("signupName").value.trim();
+    const password = $("signupPassword").value;
+    const confirm = $("signupConfirm").value;
 
-      if (!name || !password || !confirm) {
-        setMsg("signupMessage", "Please fill all fields.", "error");
-        return;
-      }
-      if (password !== confirm) {
-        setMsg("signupMessage", "Passwords do not match.", "error");
-        return;
-      }
-      // Prevent overwriting protected accounts or developer account unintentionally
-      if (name === PROTECTED_NAME || name === DEV_NAME) {
-        setMsg("signupMessage", "That account name is reserved.", "error");
-        return;
-      }
-      localStorage.setItem(name, password);
-      setMsg("signupMessage", "Account created successfully!", "success");
-      // Auto-switch to sign-in after short delay
-      setTimeout(() => {
-        hide($("signup"));
-        show($("signin"));
-        $("signinName").value = name;
-        setMsg("signinMessage", "Account created. Sign in now.", "success");
-      }, 700);
-    });
-  }
+    if (!name || !password || !confirm) {
+      setMsg("signupMessage", "Please fill all fields.", "error");
+      return;
+    }
+    if (password !== confirm) {
+      setMsg("signupMessage", "Passwords do not match.", "error");
+      return;
+    }
+    if (name === PROTECTED_NAME || name === DEV_NAME) {
+      setMsg("signupMessage", "That account name is reserved.", "error");
+      return;
+    }
+
+    localStorage.setItem(name, password);
+    setMsg("signupMessage", "Account created successfully!", "success");
+
+    // Auto-switch to sign-in after short delay
+    setTimeout(() => {
+      hide($("signup"));
+      show($("signin"));
+      $("signinName").value = name;
+      setMsg("signinMessage", "Account created. Sign in now.", "success");
+    }, 700);
+  });
 
   // Sign in
-  const btnSignIn = $("btnSignIn");
-  const developerOptions = $("developerOptions");
-  if (btnSignIn) {
-    btnSignIn.addEventListener("click", () => {
-      const name = $("signinName").value.trim();
-      const password = $("signinPassword").value;
+  $("btnSignIn").addEventListener("click", () => {
+    const name = $("signinName").value.trim();
+    const password = $("signinPassword").value;
 
-      if (!name || !password) {
-        setMsg("signinMessage", "Please enter name and password.", "error");
-        return;
-      }
+    if (!name || !password) {
+      setMsg("signinMessage", "Please enter name and password.", "error");
+      return;
+    }
 
-      // Developer unlock
-      if (name === DEV_NAME && password === DEV_PASSWORD) {
-        setMsg("signinMessage", "Developer mode activated.", "success");
-        show(developerOptions);
-        developerOptions.setAttribute("aria-hidden", "false");
-        return;
-      }
+    // Developer unlock
+    if (name === DEV_NAME && password === DEV_PASSWORD) {
+      setMsg("signinMessage", "Developer mode activated.", "success");
+      $("developerOptions").classList.remove("hidden");   // SHOW OPTIONS
+      $("developerOptions").setAttribute("aria-hidden", "false");
+      return;
+    }
 
-      const stored = localStorage.getItem(name);
-      if (stored && stored === password) {
-        setMsg("signinMessage", "Signed in successfully!", "success");
-      } else {
-        setMsg("signinMessage", "Invalid credentials.", "error");
-      }
-    });
-  }
+    const stored = localStorage.getItem(name);
+    if (stored && stored === password) {
+      setMsg("signinMessage", "Signed in successfully!", "success");
+    } else {
+      setMsg("signinMessage", "Invalid credentials.", "error");
+    }
+  });
 
   // Reset modal controls
-  const resetBtn = $("resetBtn");
-  const resetModal = $("resetModal");
-  const cancelReset = $("cancelReset");
-  const confirmReset = $("confirmReset");
-  const resetPassword = $("resetPassword");
-  const resetMessage = $("resetMessage");
+  $("resetBtn").addEventListener("click", () => {
+    $("resetPassword").value = "";
+    setMsg("resetMessage", "", "");
+    show($("resetModal"));
+  });
+  $("cancelReset").addEventListener("click", () => {
+    hide($("resetModal"));
+    $("resetPassword").value = "";
+    setMsg("resetMessage", "", "");
+  });
+  $("confirmReset").addEventListener("click", () => {
+    const pw = $("resetPassword").value;
+    if (!pw) {
+      setMsg("resetMessage", "Enter developer password to confirm.", "error");
+      return;
+    }
+    if (pw !== DEV_PASSWORD) {
+      setMsg("resetMessage", "Incorrect developer password. Reset cancelled.", "error");
+      return;
+    }
 
-  if (resetBtn && resetModal) {
-    resetBtn.addEventListener("click", () => {
-      // Open modal
-      resetPassword.value = "";
+    // Delete all except protected
+    const protectedAccounts = new Set([PROTECTED_NAME, DEV_NAME]);
+    const keysToDelete = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (!protectedAccounts.has(key)) keysToDelete.push(key);
+    }
+    keysToDelete.forEach(k => localStorage.removeItem(k));
+
+    // Re-set protected accounts
+    localStorage.setItem(PROTECTED_NAME, PROTECTED_PASS);
+    localStorage.setItem(DEV_NAME, DEV_PASSWORD);
+
+    setMsg("resetMessage", "Reset complete. Protected accounts preserved.", "success");
+    setTimeout(() => {
+      hide($("resetModal"));
+      $("resetPassword").value = "";
       setMsg("resetMessage", "", "");
-      show(resetModal);
-    });
-  }
-  if (cancelReset && resetModal) {
-    cancelReset.addEventListener("click", () => {
-      hide(resetModal);
-      resetPassword.value = "";
-      setMsg("resetMessage", "", "");
-    });
-  }
-
-  if (confirmReset) {
-    confirmReset.addEventListener("click", () => {
-      const pw = resetPassword.value;
-      if (!pw) {
-        setMsg("resetMessage", "Enter developer password to confirm.", "error");
-        return;
-      }
-      if (pw !== DEV_PASSWORD) {
-        setMsg("resetMessage", "Incorrect developer password. Reset cancelled.", "error");
-        return;
-      }
-
-      // Build list of keys to delete (preserve protected accounts)
-      const protected = new Set([PROTECTED_NAME, DEV_NAME]);
-      const keysToDelete = [];
-      for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        if (!protected.has(key)) keysToDelete.push(key);
-      }
-      // Remove keys
-      keysToDelete.forEach(k => localStorage.removeItem(k));
-      // Re-set protected accounts to ensure integrity
-      localStorage.setItem(PROTECTED_NAME, PROTECTED_PASS);
-      localStorage.setItem(DEV_NAME, DEV_PASSWORD);
-
-      setMsg("resetMessage", "Reset complete. Protected accounts preserved.", "success");
-      // Close modal after short delay
-      setTimeout(() => {
-        hide(resetModal);
-        resetPassword.value = "";
-        setMsg("resetMessage", "", "");
-      }, 900);
-    });
-  }
+    }, 900);
+  });
 
   // Sign out hides developer options
-  const signOutBtn = $("signOutBtn");
-  if (signOutBtn) {
-    signOutBtn.addEventListener("click", () => {
-      hide(developerOptions);
-      developerOptions.setAttribute("aria-hidden", "true");
-      $("signinForm").reset();
-      $("signupForm").reset();
-      setMsg("signinMessage", "", "");
-      setMsg("signupMessage", "", "");
-      alert("Signed out. Developer options hidden.");
-    });
-  }
+  $("signOutBtn").addEventListener("click", () => {
+    $("developerOptions").classList.add("hidden");        // HIDE OPTIONS
+    $("developerOptions").setAttribute("aria-hidden", "true");
+    $("signinForm").reset();
+    $("signupForm").reset();
+    setMsg("signinMessage", "", "");
+    setMsg("signupMessage", "", "");
+    alert("Signed out. Developer options hidden.");
+  });
 
   // Accessibility: Enter key submits forms
-  const signinForm = $("signinForm");
-  if (signinForm) {
-    signinForm.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        btnSignIn && btnSignIn.click();
-      }
-    });
-  }
-  const signupForm = $("signupForm");
-  if (signupForm) {
-    signupForm.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        btnCreate && btnCreate.click();
-      }
-    });
-  }
+  $("signinForm").addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      $("btnSignIn").click();
+    }
+  });
+  $("signupForm").addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      $("btnCreate").click();
+    }
+  });
 });
