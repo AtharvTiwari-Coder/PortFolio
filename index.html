@@ -3,13 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portfolio Simulator - Login</title>
+  <title>Portfolio Login</title>
+  <!-- Link unified CSS -->
   <link rel="stylesheet" href="MainPageStyle.css">
 </head>
 <body>
   <div class="container">
-    <h1>Portfolio Simulator</h1>
+    <h1>Portfolio Login</h1>
 
+    <!-- Sign Up Section -->
     <div id="signup" class="card">
       <h2>Create Account</h2>
       <input id="signupName" type="text" placeholder="Enter name" autocomplete="off">
@@ -19,6 +21,7 @@
       <div id="signupMessage" class="message"></div>
     </div>
 
+    <!-- Sign In Section -->
     <div id="signin" class="card hidden">
       <h2>Sign In</h2>
       <input id="signinName" type="text" placeholder="Enter name" autocomplete="off">
@@ -27,11 +30,16 @@
       <div id="signinMessage" class="message"></div>
     </div>
 
+    <!-- Note Section -->
     <div class="note">
-      <p><strong>Note:</strong> New accounts start with ₹100. Special accounts <span class="badge">Atharv Tiwari</span> and <span class="badge">Atharv_Dev/Full</span> have infinite balance.</p>
+      <p><strong>Note:</strong> New accounts start with ₹100. 
+        Special accounts <span class="badge">Atharv Tiwari</span> 
+        and <span class="badge">Atharv_Dev/Full</span> have infinite balance.
+      </p>
     </div>
   </div>
 
+  <!-- Link to account logic -->
   <script src="AccountLogic.js"></script>
 </body>
 </html>
