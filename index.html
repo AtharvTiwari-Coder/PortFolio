@@ -3,43 +3,121 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portfolio Login</title>
-  <!-- Link to your CSS -->
-  <link rel="stylesheet" href="MainPageStyle.css">
+  <title>Homepage</title>
+  <!-- Link to CSS -->
+  <link rel="stylesheet" href="MainPageStyle.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Portfolio Login</h1>
-
-    <!-- Sign Up Section -->
-    <div id="signup" class="card">
-      <h2>Create Account</h2>
-      <input id="signupName" type="text" placeholder="Enter name" autocomplete="off">
-      <input id="signupPassword" type="password" placeholder="Enter password">
-      <input id="signupConfirm" type="password" placeholder="Confirm password">
-      <button id="btnCreate">Create Account</button>
-      <div id="signupMessage" class="message"></div>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">Homepage</div>
+      <nav class="nav">
+        <a href="#signin" id="linkSignin" class="nav-link">Sign In</a>
+        <a href="#signup" id="linkCreate" class="nav-link">Create Account</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- Sign In Section -->
-    <div id="signin" class="card hidden">
-      <h2>Sign In</h2>
-      <input id="signinName" type="text" placeholder="Enter name" autocomplete="off">
-      <input id="signinPassword" type="password" placeholder="Enter password">
-      <button id="btnSignIn">Sign In</button>
-      <div id="signinMessage" class="message"></div>
+  <!-- Main -->
+  <main class="container main-grid">
+
+    <!-- Right: Forms -->
+    <section class="forms">
+      <!-- Sign In -->
+      <section id="signin" class="card form-card">
+        <h2 class="card-title">Sign In</h2>
+        <form id="signinForm" autocomplete="off" novalidate>
+          <label for="signinName" class="label">Name</label>
+          <input id="signinName" name="name" type="text" class="input" placeholder="Enter your name" required />
+
+          <label for="signinPassword" class="label">Password</label>
+          <div class="password-field">
+            <input id="signinPassword" name="password" type="password" class="input" placeholder="Enter your password" required />
+            <button type="button" id="toggleSigninPassword" class="btn small">Show</button>
+          </div>
+
+          <div class="actions">
+            <button type="button" id="btnSignIn" class="btn primary">Sign In</button>
+            <button type="reset" class="btn ghost">Clear</button>
+          </div>
+
+          <p id="signinMessage" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <!-- Create Account -->
+      <section id="signup" class="card form-card hidden">
+        <h2 class="card-title">Create Account</h2>
+        <form id="signupForm" autocomplete="off" novalidate>
+          <label for="signupName" class="label">Name</label>
+          <input id="signupName" name="name" type="text" class="input" placeholder="Your name" required />
+
+          <label for="signupPassword" class="label">Password</label>
+          <div class="password-field">
+            <input id="signupPassword" name="password" type="password" class="input" placeholder="Choose a password" required />
+            <button type="button" id="toggleSignupPassword" class="btn small">Show</button>
+          </div>
+
+          <label for="signupConfirm" class="label">Confirm Password</label>
+          <div class="password-field">
+            <input id="signupConfirm" name="confirm" type="password" class="input" placeholder="Confirm your password" required />
+            <button type="button" id="toggleSignupConfirm" class="btn small">Show</button>
+          </div>
+
+          <div class="actions">
+            <button type="button" id="btnCreate" class="btn primary">Create Account</button>
+            <button type="reset" class="btn ghost">Clear</button>
+          </div>
+
+          <p id="signupMessage" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <!-- Developer Info (public) -->
+  <section id="developerInfo" class="developer-info card">
+    <h3 class="dev-title">Developer Info</h3>
+    <p><strong>Developer Name:</strong> Atharv Tiwari </p>
+    <p><strong>Developer Email:</strong> &lt;---NONE---&gt;</p>
+    <p><strong>Developer Contact:</strong> 8469XXXXXX</p>
+  </section>
+
+  <!-- Developer Options (hidden until dev login) -->
+  <section id="developerOptions" class="developer-console hidden" aria-hidden="true">
+    <h3>Developer Options</h3>
+    <p class="dev-note">Private tools — visible only after developer sign in.</p>
+    <div class="actions">
+      <button id="resetBtn" class="btn danger">Reset All Accounts</button>
+      <button id="signOutBtn" class="btn">Sign Out</button>
     </div>
+  </section>
 
-    <!-- Note Section -->
-    <div class="note">
-      <p><strong>Note:</strong> New accounts start with ₹100. 
-        Special accounts <span class="badge">Atharv Tiwari</span> 
-        and <span class="badge">Atharv_Dev/Full</span> have infinite balance.
-      </p>
+  <!-- Reset Modal -->
+  <div id="resetModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="resetTitle">
+    <div class="modal-content">
+      <h3 id="resetTitle">Confirm Reset</h3>
+      <p class="modal-text">Are you sure you want to reset all accounts? This will delete all accounts except the protected ones.</p>
+      <p class="modal-text small">Protected accounts: <strong>Atharv Tiwari and the developer account.</strong></p>
+      <label for="resetPassword" class="label">Developer Password</label>
+      <input id="resetPassword" type="password" class="input" placeholder="Enter developer password" />
+      <div class="actions modal-actions">
+        <button id="confirmReset" class="btn danger">Confirm Reset</button>
+        <button id="cancelReset" class="btn ghost">Cancel</button>
+      </div>
+      <p id="resetMessage" class="message" aria-live="polite"></p>
     </div>
   </div>
 
-  <!-- Link to your JS -->
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© 2025 Atharv Portfolio</small>
+    </div>
+  </footer>
+
+  <!-- Link to JS -->
   <script src="AccountLogic.js"></script>
 </body>
 </html>
