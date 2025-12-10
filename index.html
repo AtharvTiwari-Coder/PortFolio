@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sign-In</title>
+  <title>Homepage - Sign In</title>
   <link rel="stylesheet" href="MainPageStyle.css" />
 </head>
 <body>
@@ -40,11 +40,10 @@
 
         <p id="signinMessage" class="message" aria-live="polite"></p>
       </form>
-      <!-- Persistent guidance -->
-      <p class="muted">No Account?To Create One Tap <strong>Create Account</strong> On The Top</p>
+      <p class="muted">No Account? Tap <strong>Create Account</strong> on the top.</p>
     </section>
 
-    <!-- Create Account (hidden by default) -->
+    <!-- Create Account -->
     <section id="signup" class="card hidden">
       <h2>Create a New Account</h2>
       <form id="signupForm" autocomplete="off" novalidate>
@@ -70,7 +69,6 @@
 
         <p id="signupMessage" class="message" aria-live="polite"></p>
       </form>
-      <!-- Persistent guidance -->
       <p class="muted">Already have an account? <a href="#signin">Sign In!</a></p>
     </section>
   </main>
@@ -82,15 +80,17 @@
     </div>
   </footer>
 
-  <!-- Developer Info -->
-  <pre>
-Developer Name: 
-    Atharv Tiwari @ Ritu Tripathi 
-Developer Email-Address: 
-    <---NONE--->
-Developer Contact: 
-    8469XXXXXX
-  </pre>
+  <!-- Developer Console (hidden by default) -->
+  <section id="developerConsole">
+    <h2>Developer Options</h2>
+    <p><strong>Developer Name:</strong> Atharv Tiwari @ Ritu Tripathi</p>
+    <p><strong>Developer Email-Address:</strong> <---NONE---></p>
+    <p><strong>Developer Contact:</strong> 8469XXXXXX</p>
+    <div class="actions">
+      <button id="resetBtn" class="btn danger">Reset All Accounts</button>
+      <button id="signOutBtn" class="btn">Sign Out</button>
+    </div>
+  </section>
 
   <!-- JS Logic -->
   <script src="AccountLogic.js"></script>
