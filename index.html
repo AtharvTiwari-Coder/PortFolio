@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Homepage - Sign In</title>
+  <title>Homepage</title>
   <link rel="stylesheet" href="MainPageStyle.css" />
 </head>
 <body>
@@ -20,19 +20,8 @@
 
   <!-- Main -->
   <main class="container main-grid">
-    <!-- Left column: hero/info -->
-    <aside class="hero card">
-      <h1 class="hero-title">Welcome</h1>
-      <p class="hero-sub">A clean, simple portfolio sign-in demo with a hidden developer console.</p>
-      <ul class="features">
-        <li>Secure local demo accounts (localStorage)</li>
-        <li>Developer mode unlock</li>
-        <li>Reset with confirmations</li>
-      </ul>
-      <div class="brand-note">© 2025 Homepage</div>
-    </aside>
 
-    <!-- Right column: forms -->
+    <!-- Right: Forms -->
     <section class="forms">
       <!-- Sign In -->
       <section id="signin" class="card form-card">
@@ -54,8 +43,6 @@
 
           <p id="signinMessage" class="message" aria-live="polite"></p>
         </form>
-
-        <p class="muted">No account? Tap <strong id="createHint">Create Account</strong> above.</p>
       </section>
 
       <!-- Create Account -->
@@ -84,37 +71,51 @@
 
           <p id="signupMessage" class="message" aria-live="polite"></p>
         </form>
-
-        <p class="muted">Already have an account? <a href="#signin" id="linkBackSignin" class="link-inline">Sign In</a></p>
       </section>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <small>Made by Atharv — Demo Portfolio</small>
-    </div>
-  </footer>
+  <!-- Developer Info (public) -->
+  <section id="developerInfo" class="developer-info card">
+    <h3 class="dev-title">Developer Info</h3>
+    <p><strong>Developer Name:</strong> Atharv Tiwari </p>
+    <p><strong>Developer Email:</strong> &lt;---NONE---&gt;</p>
+    <p><strong>Developer Contact:</strong> 8469XXXXXX</p>
+  </section>
 
-  <!-- Developer Console (hidden by default, placed after footer) -->
-  <section id="developerConsole" class="developer-console hidden" aria-hidden="true">
-    <div class="dev-inner">
-      <h3 class="dev-title">Developer Options</h3>
-      <div class="dev-info">
-        <div><strong>Developer Name:</strong> Atharv Tiwari @ Ritu Tripathi</div>
-        <div><strong>Developer Email-Address:</strong> &lt;---NONE---&gt;</div>
-        <div><strong>Developer Contact:</strong> 8469XXXXXX</div>
-      </div>
-
-      <div class="dev-actions">
-        <button id="resetBtn" class="btn danger">Reset All Accounts</button>
-        <button id="signOutBtn" class="btn">Sign Out</button>
-      </div>
+  <!-- Developer Options (hidden until dev login) -->
+  <section id="developerOptions" class="developer-console hidden" aria-hidden="true">
+    <h3>Developer Options</h3>
+    <p class="dev-note">Private tools — visible only after developer sign in.</p>
+    <div class="actions">
+      <button id="resetBtn" class="btn danger">Reset All Accounts</button>
+      <button id="signOutBtn" class="btn">Sign Out</button>
     </div>
   </section>
 
-  <!-- Script (keeps HTML/CSS regeneration separate from JS) -->
+  <!-- Reset Modal -->
+  <div id="resetModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="resetTitle">
+    <div class="modal-content">
+      <h3 id="resetTitle">Confirm Reset</h3>
+      <p class="modal-text">Are you sure you want to reset all accounts? This will delete all accounts except the protected ones.</p>
+      <p class="modal-text small">Protected accounts: <strong>Atharv Tiwari and the developer account.</p>
+      <label for="resetPassword" class="label">Developer Password</label>
+      <input id="resetPassword" type="password" class="input" placeholder="Enter developer password" />
+      <div class="actions modal-actions">
+        <button id="confirmReset" class="btn danger">Confirm Reset</button>
+        <button id="cancelReset" class="btn ghost">Cancel</button>
+      </div>
+      <p id="resetMessage" class="message" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© 2025 Atharv Portfolio</small>
+    </div>
+  </footer>
+
   <script src="AccountLogic.js"></script>
 </body>
 </html>
