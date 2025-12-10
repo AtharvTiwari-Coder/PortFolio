@@ -2,7 +2,44 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
+  padding: 0;/* General Page Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
   padding: 0;
+  background: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.site-header {
+  background: #222;
+  color: #fff;
+  padding: 15px;
+}
+
+.site-header .brand {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.nav a {
+  color: #fff;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 6px;
+  box-shadow:
   background: #f4f4f4;
   color: #333;
 }
