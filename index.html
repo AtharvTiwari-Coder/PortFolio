@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Homepage - Sign In</title>
   <link rel="stylesheet" href="MainPageStyle.css" />
@@ -9,90 +9,112 @@
 <body>
   <!-- Header -->
   <header class="site-header">
-    <div class="container">
+    <div class="container header-inner">
       <div class="brand">Homepage</div>
       <nav class="nav">
-        <a href="#signin">Sign In</a>
-        <a href="#signup" id="linkCreate">Create Account</a>
+        <a href="#signin" id="linkSignin" class="nav-link">Sign In</a>
+        <a href="#signup" id="linkCreate" class="nav-link">Create Account</a>
       </nav>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="container">
-    <!-- Sign In -->
-    <section id="signin" class="card">
-      <h2>Sign In</h2>
-      <form id="signinForm" autocomplete="off" novalidate>
-        <label for="signinName" class="label">Name</label>
-        <input id="signinName" name="name" type="text" class="input" placeholder="Enter your name" required />
+  <!-- Main -->
+  <main class="container main-grid">
+    <!-- Left column: hero/info -->
+    <aside class="hero card">
+      <h1 class="hero-title">Welcome</h1>
+      <p class="hero-sub">A clean, simple portfolio sign-in demo with a hidden developer console.</p>
+      <ul class="features">
+        <li>Secure local demo accounts (localStorage)</li>
+        <li>Developer mode unlock</li>
+        <li>Reset with confirmations</li>
+      </ul>
+      <div class="brand-note">© 2025 Homepage</div>
+    </aside>
 
-        <label for="signinPassword" class="label">Password</label>
-        <div class="password-field">
-          <input id="signinPassword" name="password" type="password" class="input" placeholder="Enter your password" required />
-          <button type="button" id="toggleSigninPassword" class="btn small">Show</button>
-        </div>
+    <!-- Right column: forms -->
+    <section class="forms">
+      <!-- Sign In -->
+      <section id="signin" class="card form-card">
+        <h2 class="card-title">Sign In</h2>
+        <form id="signinForm" autocomplete="off" novalidate>
+          <label for="signinName" class="label">Name</label>
+          <input id="signinName" name="name" type="text" class="input" placeholder="Enter your name" required />
 
-        <div class="actions">
-          <button type="button" id="btnSignIn" class="btn primary">Sign In</button>
-          <button type="reset" class="btn">Clear</button>
-        </div>
+          <label for="signinPassword" class="label">Password</label>
+          <div class="password-field">
+            <input id="signinPassword" name="password" type="password" class="input" placeholder="Enter your password" required />
+            <button type="button" id="toggleSigninPassword" class="btn small">Show</button>
+          </div>
 
-        <p id="signinMessage" class="message" aria-live="polite"></p>
-      </form>
-      <p class="muted">No Account? Tap <strong>Create Account</strong> on the top.</p>
-    </section>
+          <div class="actions">
+            <button type="button" id="btnSignIn" class="btn primary">Sign In</button>
+            <button type="reset" class="btn ghost">Clear</button>
+          </div>
 
-    <!-- Create Account -->
-    <section id="signup" class="card hidden">
-      <h2>Create a New Account</h2>
-      <form id="signupForm" autocomplete="off" novalidate>
-        <label for="signupName" class="label">Name</label>
-        <input id="signupName" name="name" type="text" class="input" placeholder="Your name" required />
+          <p id="signinMessage" class="message" aria-live="polite"></p>
+        </form>
 
-        <label for="signupPassword" class="label">Password</label>
-        <div class="password-field">
-          <input id="signupPassword" name="password" type="password" class="input" placeholder="Choose a password" required />
-          <button type="button" id="toggleSignupPassword" class="btn small">Show</button>
-        </div>
+        <p class="muted">No account? Tap <strong id="createHint">Create Account</strong> above.</p>
+      </section>
 
-        <label for="signupConfirm" class="label">Confirm Password</label>
-        <div class="password-field">
-          <input id="signupConfirm" name="confirm" type="password" class="input" placeholder="Confirm your password" required />
-          <button type="button" id="toggleSignupConfirm" class="btn small">Show</button>
-        </div>
+      <!-- Create Account -->
+      <section id="signup" class="card form-card hidden">
+        <h2 class="card-title">Create Account</h2>
+        <form id="signupForm" autocomplete="off" novalidate>
+          <label for="signupName" class="label">Name</label>
+          <input id="signupName" name="name" type="text" class="input" placeholder="Your name" required />
 
-        <div class="actions">
-          <button type="button" id="btnCreate" class="btn primary">Create Account</button>
-          <button type="reset" class="btn">Clear</button>
-        </div>
+          <label for="signupPassword" class="label">Password</label>
+          <div class="password-field">
+            <input id="signupPassword" name="password" type="password" class="input" placeholder="Choose a password" required />
+            <button type="button" id="toggleSignupPassword" class="btn small">Show</button>
+          </div>
 
-        <p id="signupMessage" class="message" aria-live="polite"></p>
-      </form>
-      <p class="muted">Already have an account? <a href="#signin">Sign In!</a></p>
+          <label for="signupConfirm" class="label">Confirm Password</label>
+          <div class="password-field">
+            <input id="signupConfirm" name="confirm" type="password" class="input" placeholder="Confirm your password" required />
+            <button type="button" id="toggleSignupConfirm" class="btn small">Show</button>
+          </div>
+
+          <div class="actions">
+            <button type="button" id="btnCreate" class="btn primary">Create Account</button>
+            <button type="reset" class="btn ghost">Clear</button>
+          </div>
+
+          <p id="signupMessage" class="message" aria-live="polite"></p>
+        </form>
+
+        <p class="muted">Already have an account? <a href="#signin" id="linkBackSignin" class="link-inline">Sign In</a></p>
+      </section>
     </section>
   </main>
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="container">
-      <small>© 2025 Homepage</small>
+    <div class="container footer-inner">
+      <small>Made by Atharv — Demo Portfolio</small>
     </div>
   </footer>
 
-  <!-- Developer Console (hidden by default) -->
-  <section id="developerConsole">
-    <h2>Developer Options</h2>
-    <p><strong>Developer Name:</strong> Atharv Tiwari @ Ritu Tripathi</p>
-    <p><strong>Developer Email-Address:</strong> <---NONE---></p>
-    <p><strong>Developer Contact:</strong> 8469XXXXXX</p>
-    <div class="actions">
-      <button id="resetBtn" class="btn danger">Reset All Accounts</button>
-      <button id="signOutBtn" class="btn">Sign Out</button>
+  <!-- Developer Console (hidden by default, placed after footer) -->
+  <section id="developerConsole" class="developer-console hidden" aria-hidden="true">
+    <div class="dev-inner">
+      <h3 class="dev-title">Developer Options</h3>
+      <div class="dev-info">
+        <div><strong>Developer Name:</strong> Atharv Tiwari @ Ritu Tripathi</div>
+        <div><strong>Developer Email-Address:</strong> &lt;---NONE---&gt;</div>
+        <div><strong>Developer Contact:</strong> 8469XXXXXX</div>
+      </div>
+
+      <div class="dev-actions">
+        <button id="resetBtn" class="btn danger">Reset All Accounts</button>
+        <button id="signOutBtn" class="btn">Sign Out</button>
+      </div>
     </div>
   </section>
 
-  <!-- JS Logic -->
+  <!-- Script (keeps HTML/CSS regeneration separate from JS) -->
   <script src="AccountLogic.js"></script>
 </body>
 </html>
