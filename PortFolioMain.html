@@ -8,216 +8,537 @@
 </head>
 <body>
   <div class="container">
-    <h1>Market Portfolio</h1>
+    <header class="header">
+      <h1>Market Portfolio</h1>
+      <p class="subtitle">50 shares • Indian + International • Prices shown in ₹</p>
+    </header>
 
-    <!-- ===== INDIAN SHARES ===== -->
-    <div class="share-card">
-      <h2>Reliance Industries (RELIANCE)</h2>
-      <p class="price">₹2,450</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+    <!-- ===== INDIAN SHARES (25) ===== -->
+    <section class="section" id="indian-shares">
+      <h2 class="section-title">Indian Shares</h2>
+
+      <div class="share-card" data-symbol="RELIANCE" data-price="2450">
+        <h3>Reliance Industries (RELIANCE)</h3>
+        <p class="price">₹2,450</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>Tata Consultancy Services (TCS)</h2>
-      <p class="price">₹3,550</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="TCS" data-price="3550">
+        <h3>Tata Consultancy Services (TCS)</h3>
+        <p class="price">₹3,550</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>Infosys (INFY)</h2>
-      <p class="price">₹1,450</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="INFY" data-price="1450">
+        <h3>Infosys (INFY)</h3>
+        <p class="price">₹1,450</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>HDFC Bank (HDFCBANK)</h2>
-      <p class="price">₹1,650</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="HDFCBANK" data-price="1650">
+        <h3>HDFC Bank (HDFCBANK)</h3>
+        <p class="price">₹1,650</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>ICICI Bank (ICICIBANK)</h2>
-      <p class="price">₹1,050</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="ICICIBANK" data-price="1050">
+        <h3>ICICI Bank (ICICIBANK)</h3>
+        <p class="price">₹1,050</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>State Bank of India (SBIN)</h2>
-      <p class="price">₹720</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="SBIN" data-price="720">
+        <h3>State Bank of India (SBIN)</h3>
+        <p class="price">₹720</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>Bharti Airtel (BHARTIARTL)</h2>
-      <p class="price">₹1,200</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="BHARTIARTL" data-price="1200">
+        <h3>Bharti Airtel (BHARTIARTL)</h3>
+        <p class="price">₹1,200</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>Adani Enterprises (ADANIENT)</h2>
-      <p class="price">₹2,800</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="ADANIENT" data-price="2800">
+        <h3>Adani Enterprises (ADANIENT)</h3>
+        <p class="price">₹2,800</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>Wipro (WIPRO)</h2>
-      <p class="price">₹420</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="WIPRO" data-price="420">
+        <h3>Wipro (WIPRO)</h3>
+        <p class="price">₹420</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>MRF Ltd (MRF)</h2>
-      <p class="price">₹1,45,600</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="MRF" data-price="145600">
+        <h3>MRF Ltd (MRF)</h3>
+        <p class="price">₹1,45,600</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <!-- Add 15 more Indian companies like Asian Paints, HUL, NTPC, PowerGrid, Bajaj Finance, etc. -->
-
-    <!-- ===== INTERNATIONAL SHARES ===== -->
-    <div class="share-card">
-      <h2>Apple Inc. (AAPL)</h2>
-      <p class="price">₹15,000</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="ASIANPAINT" data-price="3600">
+        <h3>Asian Paints (ASIANPAINT)</h3>
+        <p class="price">₹3,600</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>Microsoft Corp. (MSFT)</h2>
-      <p class="price">₹12,500</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="HINDUNILVR" data-price="2600">
+        <h3>Hindustan Unilever (HINDUNILVR)</h3>
+        <p class="price">₹2,600</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>Amazon.com Inc. (AMZN)</h2>
-      <p class="price">₹10,800</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="KOTAKBANK" data-price="2100">
+        <h3>Kotak Mahindra Bank (KOTAKBANK)</h3>
+        <p class="price">₹2,100</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>Alphabet Inc. (GOOGL)</h2>
-      <p class="price">₹11,200</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="BAJFINANCE" data-price="7200">
+        <h3>Bajaj Finance (BAJFINANCE)</h3>
+        <p class="price">₹7,200</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>Tesla Inc. (TSLA)</h2>
-      <p class="price">₹6,500</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="LT" data-price="3600">
+        <h3>Larsen & Toubro (LT)</h3>
+        <p class="price">₹3,600</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>Meta Platforms (META)</h2>
-      <p class="price">₹8,200</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="MARUTI" data-price="11,200">
+        <h3>Maruti Suzuki (MARUTI)</h3>
+        <p class="price">₹11,200</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>NVIDIA Corp. (NVDA)</h2>
-      <p class="price">₹9,800</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="TATAMOTORS" data-price="680">
+        <h3>Tata Motors (TATAMOTORS)</h3>
+        <p class="price">₹680</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>Berkshire Hathaway Class A (BRK.A)</h2>
-      <p class="price">₹6,20,00,000</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="M&M" data-price="1700">
+        <h3>Mahindra & Mahindra (M&M)</h3>
+        <p class="price">₹1,700</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>Berkshire Hathaway Class B (BRK.B)</h2>
-      <p class="price">₹4,500</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="NESTLEIND" data-price="21000">
+        <h3>Nestle India (NESTLEIND)</h3>
+        <p class="price">₹21,000</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <div class="share-card">
-      <h2>Bitcoin (BTC)</h2>
-      <p class="price">₹78,00,000</p>
-      <div class="actions">
-        <button class="btn buy">Buy</button>
-        <button class="btn sell">Sell</button>
-        <button class="btn hold">Hold</button>
+      <div class="share-card" data-symbol="SUNPHARMA" data-price="1100">
+        <h3>Sun Pharmaceutical (SUNPHARMA)</h3>
+        <p class="price">₹1,100</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
       </div>
-    </div>
 
-    <!-- Add 15 more international companies like JPMorgan, Johnson & Johnson, Samsung, Toyota, Nestle, etc. -->
+      <div class="share-card" data-symbol="TITAN" data-price="3200">
+        <h3>Titan Company (TITAN)</h3>
+        <p class="price">₹3,200</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
 
+      <div class="share-card" data-symbol="ULTRATECH" data-price="7600">
+        <h3>UltraTech Cement (ULTRATECH)</h3>
+        <p class="price">₹7,600</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="POWERGRID" data-price="260">
+        <h3>Power Grid Corporation (POWERGRID)</h3>
+        <p class="price">₹260</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="NTPC" data-price="250">
+        <h3>NTPC Ltd (NTPC)</h3>
+        <p class="price">₹250</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="JSWSTEEL" data-price="820">
+        <h3>JSW Steel (JSWSTEEL)</h3>
+        <p class="price">₹820</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== INTERNATIONAL SHARES (25) ===== -->
+    <section class="section" id="international-shares">
+      <h2 class="section-title">International Shares & Crypto</h2>
+
+      <div class="share-card" data-symbol="AAPL" data-price="15000">
+        <h3>Apple Inc. (AAPL)</h3>
+        <p class="price">₹15,000</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="MSFT" data-price="12500">
+        <h3>Microsoft Corp. (MSFT)</h3>
+        <p class="price">₹12,500</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="AMZN" data-price="10800">
+        <h3>Amazon.com Inc. (AMZN)</h3>
+        <p class="price">₹10,800</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="GOOGL" data-price="11200">
+        <h3>Alphabet Inc. (GOOGL)</h3>
+        <p class="price">₹11,200</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="TSLA" data-price="6500">
+        <h3>Tesla Inc. (TSLA)</h3>
+        <p class="price">₹6,500</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="META" data-price="8200">
+        <h3>Meta Platforms (META)</h3>
+        <p class="price">₹8,200</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="NVDA" data-price="9800">
+        <h3>NVIDIA Corp. (NVDA)</h3>
+        <p class="price">₹9,800</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="BRK.A" data-price="62000000">
+        <h3>Berkshire Hathaway Class A (BRK.A)</h3>
+        <p class="price">₹6,20,00,000</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="BRK.B" data-price="4500">
+        <h3>Berkshire Hathaway Class B (BRK.B)</h3>
+        <p class="price">₹4,500</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="JPM" data-price="5200">
+        <h3>JPMorgan Chase (JPM)</h3>
+        <p class="price">₹5,200</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="JNJ" data-price="4200">
+        <h3>Johnson & Johnson (JNJ)</h3>
+        <p class="price">₹4,200</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="SAMSUNG" data-price="1200">
+        <h3>Samsung Electronics (005930.KS)</h3>
+        <p class="price">₹1,200</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="TM" data-price="2100">
+        <h3>Toyota Motor (TM)</h3>
+        <p class="price">₹2,100</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="NESN" data-price="1700">
+        <h3>Nestle S.A. (NESN)</h3>
+        <p class="price">₹1,700</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="PG" data-price="4200">
+        <h3>Procter & Gamble (PG)</h3>
+        <p class="price">₹4,200</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="KO" data-price="2100">
+        <h3>Coca-Cola (KO)</h3>
+        <p class="price">₹2,100</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="PEP" data-price="2600">
+        <h3>PepsiCo (PEP)</h3>
+        <p class="price">₹2,600</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="XOM" data-price="3400">
+        <h3>ExxonMobil (XOM)</h3>
+        <p class="price">₹3,400</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="SHEL" data-price="2800">
+        <h3>Shell plc (SHEL)</h3>
+        <p class="price">₹2,800</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="V" data-price="22000">
+        <h3>Visa Inc. (V)</h3>
+        <p class="price">₹22,000</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="MA" data-price="32000">
+        <h3>Mastercard (MA)</h3>
+        <p class="price">₹32,000</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="WMT" data-price="2100">
+        <h3>Walmart Inc. (WMT)</h3>
+        <p class="price">₹2,100</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="INTC" data-price="1200">
+        <h3>Intel Corp. (INTC)</h3>
+        <p class="price">₹1,200</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="CSCO" data-price="1400">
+        <h3>Cisco Systems (CSCO)</h3>
+        <p class="price">₹1,400</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+      <div class="share-card" data-symbol="BTC" data-price="7800000">
+        <h3>Bitcoin (BTC)</h3>
+        <p class="price">₹78,00,000</p>
+        <div class="actions">
+          <button class="btn buy">Buy</button>
+          <button class="btn sell">Sell</button>
+          <button class="btn hold">Hold</button>
+        </div>
+      </div>
+
+    </section>
   </div>
 
-  <script src="PortFolioMainLogic.js"></script>
+  <script>
+    // Simple click handler for Buy / Sell / Hold buttons
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".share-card .btn").forEach(button => {
+        button.addEventListener("click", (e) => {
+          const card = e.target.closest(".share-card");
+          const name = card.querySelector("h3").textContent;
+          const priceText = card.querySelector(".price").textContent;
+          const action = e.target.textContent;
+          // Replace alert with your app logic later
+          alert(action + " clicked for " + name + " at " + priceText);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
