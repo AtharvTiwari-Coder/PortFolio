@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio Dashboard</title>
+  <link rel="stylesheet" href="PortFolioDashBStyle.css" />
+</head>
+<body>
+  <!-- Header (shows account name and money; hides on scroll down, shows on scroll up) -->
+  <header id="topHeader" class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <img src="" alt="Logo" id="logoImg" />
+        <span class="brand">MyPortfolio</span>
+      </div>
+      <div class="account-info">
+        <div class="account-name"><strong>Account:</strong> <span id="accountName">Demo User</span></div>
+        <div class="account-balance"><strong>Balance:</strong> ₹<span id="accountBalance">10000</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="container">
+    <!-- Top area with logo and title (this will be scrolled away when user scrolls down) -->
+    <section class="hero">
+      <div class="hero-content">
+        <img src="" alt="Logo large" id="heroLogo" class="hero-logo" />
+        <h1>Portfolio Dashboard</h1>
+        <p class="subtitle">Track shares, buy, hold, and sell — watch your balance update live.</p>
+      </div>
+    </section>
+
+    <!-- Shares list -->
+    <section class="shares-section">
+      <h2>Shares</h2>
+      <div id="sharesList" class="shares-list">
+        <!-- JS will populate share cards here -->
+      </div>
+    </section>
+
+    <!-- Developer contact (placeholder text — you'll tell me what to put here) -->
+    <footer class="contact">
+      <h3>Contact the Developer</h3>
+      <p id="developerContact">[Developer contact text goes here — tell me what to say and I'll insert it]</p>
+    </footer>
+  </main>
+
+  <script src="PortFolioDashBLogic.js"></script>
+</body>
+</html>
