@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Helper functions
   const $ = id => document.getElementById(id);
   const setMsg = (id, text, type) => {
     const el = $(id);
@@ -26,14 +27,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const hideEl = $(hideId);
     const showEl = $(showId);
 
+    // Fade out
     hideEl.classList.remove("show");
     setTimeout(() => hideEl.classList.add("hidden"), 500);
 
+    // Fade in
     showEl.classList.remove("hidden");
     setTimeout(() => showEl.classList.add("show"), 10);
   }
 
-  // Navigation
+  // Navigation between forms
   $("linkCreate")?.addEventListener("click", e => {
     e.preventDefault();
     switchForm("signin", "signup");
@@ -91,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Enter key submits forms
+  // Accessibility: Enter key submits forms
   $("signinForm")?.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -105,7 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // ===========================
   // Loading Screen Fake Counter
+  // ===========================
   const loadingScreen = $("loadingScreen");
   const progressEl = document.querySelector(".loading-progress");
   let progress = 0;
@@ -119,13 +124,21 @@ document.addEventListener("DOMContentLoaded", () => {
         loadingScreen.classList.add("hidden");
       }, 500);
     }
-  }, 60);
+  }, 60); // ~3s total
 
+  // ===========================
   // Theme Toggle
+  // ===========================
   const themeToggle = $("themeToggle");
   function applyTheme(mode) {
     document.body.classList.remove("light", "dark");
     if (mode === "light") document.body.classList.add("light");
     else if (mode === "dark") document.body.classList.add("dark");
     else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.body.classList.add(prefersDark ? "dark" : "light");
+    }
+  }
+  themeToggle.addEventListener("change", () => applyTheme(themeToggle.value));
+  applyTheme("system");
+});
