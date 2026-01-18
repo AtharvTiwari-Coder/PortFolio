@@ -10,13 +10,13 @@ body {
   overscroll-behavior-y: contain;
 }
 
+/* Logo size fix */
 .loading-logo {
   width: 120px;       /* fixed width */
   height: auto;       /* keep aspect ratio */
   max-width: 40%;     /* prevent it from covering full screen */
   margin-bottom: 20px;
 }
-
 /* Container */
 .container { width: 92%; max-width: 1100px; margin: 0 auto; }
 
