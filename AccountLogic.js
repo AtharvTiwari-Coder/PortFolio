@@ -42,22 +42,30 @@ document.addEventListener("DOMContentLoaded", () => {
   togglePassword("signupPassword", "toggleSignupPassword");
   togglePassword("signupConfirm", "toggleSignupConfirm");
 
-  // Navigation between forms with slide animation
-  $("linkCreate")?.addEventListener("click", (e) => {
+  // Dissolve animation switcher
+  function switchForm(hideId, showId) {
+    const hideEl = $(hideId);
+    const showEl = $(showId);
+
+    // Fade out
+    hideEl.classList.remove("show");
+    setTimeout(() => hideEl.classList.add("hidden"), 500); // wait for fade-out
+
+    // Fade in
+    showEl.classList.remove("hidden");
+    setTimeout(() => showEl.classList.add("show"), 10); // trigger fade-in
+  }
+
+  // Navigation between forms
+  $("linkCreate")?.addEventListener("click", e => {
     e.preventDefault();
-    hide($("signin"));
-    $("signin").classList.remove("show");
-    show($("signup"));
-    $("signup").classList.add("show");
+    switchForm("signin", "signup");
     setMsg("signinMessage", "", "");
     setMsg("signupMessage", "", "");
   });
-  $("linkSignin")?.addEventListener("click", (e) => {
+  $("linkSignin")?.addEventListener("click", e => {
     e.preventDefault();
-    hide($("signup"));
-    $("signup").classList.remove("show");
-    show($("signin"));
-    $("signin").classList.add("show");
+    switchForm("signup", "signin");
     setMsg("signinMessage", "", "");
     setMsg("signupMessage", "", "");
   });
@@ -83,10 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem(name, info);
     setMsg("signupMessage", "Account created successfully!", "success");
     setTimeout(() => {
-      hide($("signup"));
-      $("signup").classList.remove("show");
-      show($("signin"));
-      $("signin").classList.add("show");
+      switchForm("signup", "signin");
       $("signinName").value = name;
       setMsg("signinMessage", "Account created. Sign in now.", "success");
     }, 700);
@@ -229,12 +234,6 @@ document.addEventListener("DOMContentLoaded", () => {
   applyTheme("system");
 
   // ===========================
-  // Slide/Fade Animation Setup
+  // Dissolve Animation Setup
   // ===========================
-  document.querySelectorAll(".slide-card").forEach(card => {
-    card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-    if (!card.classList.contains("hidden")) {
-      card.classList.add("show");
-    }
-  });
-});
+  document.querySelectorAll(".slide
