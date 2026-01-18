@@ -1,4 +1,6 @@
-/* Reset & Base */
+/* ===========================
+   Reset & Base
+   =========================== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html,body { height: 100%; }
 body {
@@ -10,17 +12,19 @@ body {
   overscroll-behavior-y: contain;
 }
 
-/* Logo size fix */
+/* ===========================
+   Logo size fix
+   =========================== */
 .loading-logo {
   width: 120px;       /* fixed width */
   height: auto;       /* keep aspect ratio */
   max-width: 40%;     /* prevent it from covering full screen */
   margin-bottom: 20px;
 }
-/* Container */
-.container { width: 92%; max-width: 1100px; margin: 0 auto; }
 
-/* Header */
+/* ===========================
+   Header
+   =========================== */
 .site-header {
   background: linear-gradient(90deg,#0f172a,#0b1220);
   color: #fff;
@@ -33,15 +37,42 @@ body {
 .nav-link { color: #fff; text-decoration:none; padding:8px 12px; border-radius:8px; transition: background .18s, transform .12s; }
 .nav-link:hover { background: rgba(255,255,255,0.04); transform: translateY(-1px); }
 
-/* Layout */
+/* ===========================
+   Layout
+   =========================== */
 .main-grid { display:grid; grid-template-columns: 1fr 420px; gap: 28px; align-items:start; padding: 28px 0; }
 @media (max-width: 900px) { .main-grid { grid-template-columns: 1fr; } }
 
-/* Cards */
+/* ===========================
+   Cards
+   =========================== */
 .card { background: #fff; padding: 20px; margin-top: 20px; border-radius: 12px; box-shadow: 0 8px 30px rgba(11,22,40,0.06); }
 .card-title { margin: 0 0 12px 0; font-size: 1.1rem; color: #0b1220; }
 
-/* Form Elements */
+/* ===========================
+   Dissolve Animation
+   =========================== */
+.slide-card {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.slide-card.show {
+  opacity: 1;
+}
+.slide-card.hidden {
+  display: none !important;
+}
+
+/* ===========================
+   Form Elements
+   =========================== */
 .label { display:block; margin-top: 12px; color: #334155; font-size: 0.95rem; }
 .input { width:100%; padding: 10px 12px; margin-top:6px; border-radius:8px; border: 1px solid #e6eef8; background: #fbfdff; font-size: 0.95rem; color: #0b1220; }
 .input:focus { outline: none; border-color: #7c9cff; box-shadow: 0 6px 18px rgba(124,156,255,0.12); }
@@ -50,27 +81,76 @@ body {
 .password-field { display:flex; gap:8px; align-items:center; margin-top:6px; }
 .btn.small { margin-left: 4px; padding: 8px 10px; font-size: 0.85rem; border-radius:8px; background: #eef2ff; border: 1px solid #dbe7ff; cursor:pointer; color:#0b1220; }
 
-/* Buttons */
+/* ===========================
+   Buttons
+   =========================== */
 .actions { display:flex; gap:10px; margin-top: 16px; align-items:center; }
 .btn { padding: 10px 14px; border-radius:10px; border: none; cursor: pointer; font-weight:600; transition: transform .12s, box-shadow .12s; }
 .btn.primary { background: linear-gradient(180deg,#2563eb,#1e40af); color: #fff; }
 .btn.ghost { background: transparent; color: #334155; border: 1px solid #e6eef8; }
 
-/* Messages */
+/* ===========================
+   Messages
+   =========================== */
 .message { margin-top: 10px; font-weight:600; min-height: 20px; }
 .message.success { color: #16a34a; }
 .message.error { color: #dc2626; }
 
-/* Developer Info */
+/* ===========================
+   Developer Info
+   =========================== */
 .developer-info { margin: 20px auto; max-width: 1100px; border-left: 4px solid #2563eb; padding: 16px; background: #fff; }
 .dev-title { margin: 0 0 8px 0; font-family: monospace; color: #0b1220; }
 
-/* Footer */
+/* ===========================
+   Footer
+   =========================== */
 .site-footer { background: #0b1220; color: #cbd5e1; text-align: center; padding: 14px 0; margin-top: 28px; }
 
-/* Loading Screen */
+/* ===========================
+   Loading Screen
+   =========================== */
 .loading-screen {
   position: fixed;
   inset: 0;
   background: #0b1220;
-  display:
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  z-index: 2000;
+  transition: opacity 0.8s ease;
+}
+.loading-progress { font-weight: bold; }
+.loading-screen.hidden { opacity: 0; pointer-events: none; }
+
+/* ===========================
+   Theme Toggle & Dark Mode
+   =========================== */
+.theme-toggle {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0b1220;
+  color: #fff;
+  font-size: 0.9rem;
+}
+body.light {
+  background: #f7f9fc;
+  color: #0b1220;
+}
+body.dark {
+  background: #0b1220;
+  color: #f1f5f9;
+}
+body.dark .card {
+  background: #1e293b;
+  color: #f1f5f9;
+}
+body.dark .input {
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #f1f5f9;
+}
