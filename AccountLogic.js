@@ -1,6 +1,6 @@
 // AccountLogic.js
 document.addEventListener("DOMContentLoaded", () => {
-  // Developer information and protected account
+  // Developer info and protected accounts
   const DEV_NAME = "Atharv_Dev/Full";
   const DEV_INFO = "Devloper_AtharvT-Full";
   const PROTECTED_NAME = "Atharv Tiwari";
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     el.className = "message" + (type ? " " + type : "");
   };
 
-  // Ensure protected accounts exist in localStorage
+  // Ensure protected accounts exist
   function ensureProtectedAccounts() {
     if (localStorage.getItem(PROTECTED_NAME) === null) {
       localStorage.setItem(PROTECTED_NAME, PROTECTED_INFO);
@@ -49,11 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Fade out
     hideEl.classList.remove("show");
-    setTimeout(() => hideEl.classList.add("hidden"), 500); // wait for fade-out
+    setTimeout(() => hideEl.classList.add("hidden"), 500);
 
     // Fade in
     showEl.classList.remove("hidden");
-    setTimeout(() => showEl.classList.add("show"), 10); // trigger fade-in
+    setTimeout(() => showEl.classList.add("show"), 10);
   }
 
   // Navigation between forms
@@ -110,79 +110,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // Developer unlock
     if (name === DEV_NAME && info === DEV_INFO) {
       setMsg("signinMessage", "Developer mode activated.", "success");
-      show($("developerOptions"));
-      $("developerOptions").setAttribute("aria-hidden", "false");
       return;
     }
 
     const stored = localStorage.getItem(name);
     if (stored && stored === info) {
       setMsg("signinMessage", "Signed in successfully!", "success");
-      // Ask Stay Signed In
-      show($("staySignedInModal"));
-      $("staySignedInModal").setAttribute("aria-hidden", "false");
-
-      $("stayYes").onclick = () => {
-        localStorage.setItem("currentUser", name);
-        hide($("staySignedInModal"));
+      // Redirect to main page
+      setTimeout(() => {
         window.location.href = "PortFolioMain.html";
-      };
-      $("stayNo").onclick = () => {
-        hide($("staySignedInModal"));
-        window.location.href = "PortFolioMain.html";
-      };
+      }, 800);
     } else {
       setMsg("signinMessage", "Account may be deleted or invalid information.", "error");
     }
-  });
-
-  // Reset modal controls
-  $("resetBtn")?.addEventListener("click", () => {
-    $("resetPassword").value = "";
-    setMsg("resetMessage", "", "");
-    show($("resetModal"));
-  });
-  $("cancelReset")?.addEventListener("click", () => {
-    hide($("resetModal"));
-    $("resetPassword").value = "";
-    setMsg("resetMessage", "", "");
-  });
-  $("confirmReset")?.addEventListener("click", () => {
-    const pw = $("resetPassword").value;
-    if (!pw) {
-      setMsg("resetMessage", "Enter developer information to confirm.", "error");
-      return;
-    }
-    if (pw !== DEV_INFO) {
-      setMsg("resetMessage", "Incorrect developer information. Reset cancelled.", "error");
-      return;
-    }
-    const protectedSet = new Set([PROTECTED_NAME, DEV_NAME]);
-    const keysToDelete = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (!protectedSet.has(key)) keysToDelete.push(key);
-    }
-    keysToDelete.forEach(k => localStorage.removeItem(k));
-    localStorage.setItem(PROTECTED_NAME, PROTECTED_INFO);
-    localStorage.setItem(DEV_NAME, DEV_INFO);
-    setMsg("resetMessage", "Reset complete. Protected accounts preserved.", "success");
-    setTimeout(() => {
-      hide($("resetModal"));
-      $("resetPassword").value = "";
-      setMsg("resetMessage", "", "");
-    }, 900);
-  });
-
-  // Sign out hides developer options
-  $("signOutBtn")?.addEventListener("click", () => {
-    hide($("developerOptions"));
-    $("developerOptions").setAttribute("aria-hidden", "true");
-    $("signinForm").reset();
-    $("signupForm").reset();
-    setMsg("signinMessage", "", "");
-    setMsg("signupMessage", "", "");
-    alert("Signed out. Developer options hidden.");
   });
 
   // Accessibility: Enter key submits forms
@@ -232,8 +172,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   themeToggle.addEventListener("change", () => applyTheme(themeToggle.value));
   applyTheme("system");
-
-  // ===========================
-  // Dissolve Animation Setup
-  // ===========================
-  document.querySelectorAll(".slide
+});
