@@ -7,6 +7,12 @@
   <link rel="stylesheet" href="MainPageStyle.css" />
 </head>
 <body>
+  <!-- Loading Screen -->
+  <div id="loadingScreen" class="loading-screen">
+    <img src="PortFolio-LOGO.png" alt="Portfolio Logo" class="loading-logo" />
+    <div class="loading-progress">0%</div>
+  </div>
+
   <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
@@ -14,6 +20,12 @@
       <nav class="nav">
         <a href="#signin" id="linkSignin" class="nav-link">Sign In</a>
         <a href="#signup" id="linkCreate" class="nav-link">Create Account</a>
+        <!-- Theme Toggle -->
+        <select id="themeToggle" class="theme-toggle">
+          <option value="system">System</option>
+          <option value="light">Day</option>
+          <option value="dark">Night</option>
+        </select>
       </nav>
     </div>
   </header>
@@ -24,7 +36,7 @@
     <!-- Right: Forms -->
     <section class="forms">
       <!-- Sign In -->
-      <section id="signin" class="card form-card">
+      <section id="signin" class="card form-card slide-card">
         <h2 class="card-title">Sign In</h2>
         <form id="signinForm" autocomplete="off" novalidate>
           <label for="signinName" class="label">Name</label>
@@ -46,7 +58,7 @@
       </section>
 
       <!-- Create Account -->
-      <section id="signup" class="card form-card hidden">
+      <section id="signup" class="card form-card slide-card hidden">
         <h2 class="card-title">Create Account</h2>
         <form id="signupForm" autocomplete="off" novalidate>
           <label for="signupName" class="label">Name</label>
@@ -75,6 +87,18 @@
     </section>
   </main>
 
+  <!-- Stay Signed In Modal -->
+  <div id="staySignedInModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="stayTitle">
+    <div class="modal-content">
+      <h3 id="stayTitle">Stay Signed In?</h3>
+      <p class="modal-text">Do you want to stay signed in on this device?</p>
+      <div class="actions modal-actions">
+        <button id="stayYes" class="btn primary">Yes</button>
+        <button id="stayNo" class="btn ghost">No</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Developer Info (public) -->
   <section id="developerInfo" class="developer-info card">
     <h3 class="dev-title">Developer Info</h3>
@@ -98,7 +122,7 @@
     <div class="modal-content">
       <h3 id="resetTitle">Confirm Reset</h3>
       <p class="modal-text">Are you sure you want to reset all accounts? This will delete all accounts except the protected ones.</p>
-      <p class="modal-text small">Protected accounts: <strong>Atharv Tiwari and the developer account.</p>
+      <p class="modal-text small">Protected accounts: <strong>Atharv Tiwari and the developer account.</strong></p>
       <label for="resetPassword" class="label">Developer Password</label>
       <input id="resetPassword" type="password" class="input" placeholder="Enter developer password" />
       <div class="actions modal-actions">
