@@ -42,18 +42,22 @@ document.addEventListener("DOMContentLoaded", () => {
   togglePassword("signupPassword", "toggleSignupPassword");
   togglePassword("signupConfirm", "toggleSignupConfirm");
 
-  // Navigation between forms
+  // Navigation between forms with slide animation
   $("linkCreate")?.addEventListener("click", (e) => {
     e.preventDefault();
     hide($("signin"));
+    $("signin").classList.remove("show");
     show($("signup"));
+    $("signup").classList.add("show");
     setMsg("signinMessage", "", "");
     setMsg("signupMessage", "", "");
   });
   $("linkSignin")?.addEventListener("click", (e) => {
     e.preventDefault();
     hide($("signup"));
+    $("signup").classList.remove("show");
     show($("signin"));
+    $("signin").classList.add("show");
     setMsg("signinMessage", "", "");
     setMsg("signupMessage", "", "");
   });
@@ -80,7 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
     setMsg("signupMessage", "Account created successfully!", "success");
     setTimeout(() => {
       hide($("signup"));
+      $("signup").classList.remove("show");
       show($("signin"));
+      $("signin").classList.add("show");
       $("signinName").value = name;
       setMsg("signinMessage", "Account created. Sign in now.", "success");
     }, 700);
@@ -107,9 +113,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const stored = localStorage.getItem(name);
     if (stored && stored === info) {
       setMsg("signinMessage", "Signed in successfully!", "success");
-      localStorage.setItem("currentUser", name);
-      // Redirect to dashboard
-      window.location.href = "PortFolioMain.html";
+      // Ask Stay Signed In
+      show($("staySignedInModal"));
+      $("staySignedInModal").setAttribute("aria-hidden", "false");
+
+      $("stayYes").onclick = () => {
+        localStorage.setItem("currentUser", name);
+        hide($("staySignedInModal"));
+        window.location.href = "PortFolioMain.html";
+      };
+      $("stayNo").onclick = () => {
+        hide($("staySignedInModal"));
+        window.location.href = "PortFolioMain.html";
+      };
     } else {
       setMsg("signinMessage", "Account may be deleted or invalid information.", "error");
     }
@@ -175,6 +191,50 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Enter") {
       e.preventDefault();
       $("btnCreate")?.click();
+    }
+  });
+
+  // ===========================
+  // Loading Screen Fake Counter
+  // ===========================
+  const loadingScreen = $("loadingScreen");
+  const progressEl = document.querySelector(".loading-progress");
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += 2;
+    if (progress > 100) progress = 100;
+    progressEl.textContent = progress + "%";
+    if (progress === 100) {
+      clearInterval(interval);
+      setTimeout(() => {
+        loadingScreen.classList.add("hidden");
+      }, 500);
+    }
+  }, 60); // ~3s total
+
+  // ===========================
+  // Theme Toggle
+  // ===========================
+  const themeToggle = $("themeToggle");
+  function applyTheme(mode) {
+    document.body.classList.remove("light", "dark");
+    if (mode === "light") document.body.classList.add("light");
+    else if (mode === "dark") document.body.classList.add("dark");
+    else {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.body.classList.add(prefersDark ? "dark" : "light");
+    }
+  }
+  themeToggle.addEventListener("change", () => applyTheme(themeToggle.value));
+  applyTheme("system");
+
+  // ===========================
+  // Slide/Fade Animation Setup
+  // ===========================
+  document.querySelectorAll(".slide-card").forEach(card => {
+    card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+    if (!card.classList.contains("hidden")) {
+      card.classList.add("show");
     }
   });
 });
