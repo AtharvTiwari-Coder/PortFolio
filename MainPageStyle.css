@@ -201,3 +201,19 @@ body.dark .developer-info .dev-title,
 body.dark .developer-info p {
   color: #ffffff !important;
 }
+/* ===========================
+   Always keep error/success colors
+   =========================== */
+.message.success {
+  color: #16a34a !important; /* bright green */
+}
+.message.error {
+  color: #dc2626 !important; /* bright red */
+}
+
+body.dark .message.success {
+  color: #16a34a !important;
+}
+body.dark .message.error {
+  color: #dc2626 !important;
+}
