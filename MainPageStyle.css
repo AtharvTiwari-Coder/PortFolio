@@ -95,6 +95,26 @@ body {
 .message { margin-top: 10px; font-weight:600; min-height: 20px; }
 .message.success { color: #16a34a; }
 .message.error { color: #dc2626; }
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2,6,23,0.5);
+  z-index: 1200;
+}
+.modal.hidden { display: none; }
+.modal-content {
+  width: 320px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.3);
+}
+.modal-text { margin-bottom: 16px; color: #374151; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; }
+
 
 /* ===========================
    Developer Info
