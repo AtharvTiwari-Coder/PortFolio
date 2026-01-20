@@ -1,12 +1,32 @@
+// AccountLogic.js
 document.addEventListener("DOMContentLoaded", () => {
-  // Helper functions
+  // Developer info and protected accounts
+  const DEV_NAME = "Atharv_Dev/Full";
+  const DEV_INFO = "Devloper_AtharvT-Full";
+  const PROTECTED_NAME = "Atharv Tiwari";
+  const PROTECTED_INFO = "Atharv_000";
+
+  // Helpers
   const $ = id => document.getElementById(id);
+  const show = el => el && el.classList.remove("hidden");
+  const hide = el => el && el.classList.add("hidden");
   const setMsg = (id, text, type) => {
     const el = $(id);
     if (!el) return;
     el.textContent = text || "";
     el.className = "message" + (type ? " " + type : "");
   };
+
+  // Ensure protected accounts exist
+  function ensureProtectedAccounts() {
+    if (localStorage.getItem(PROTECTED_NAME) === null) {
+      localStorage.setItem(PROTECTED_NAME, PROTECTED_INFO);
+    }
+    if (localStorage.getItem(DEV_NAME) === null) {
+      localStorage.setItem(DEV_NAME, DEV_INFO);
+    }
+  }
+  ensureProtectedAccounts();
 
   // Toggle password visibility
   function togglePassword(inputId, btnId) {
@@ -64,6 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
       setMsg("signupMessage", "Information does not match.", "error");
       return;
     }
+    if (name === PROTECTED_NAME || name === DEV_NAME) {
+      setMsg("signupMessage", "That account name is reserved.", "error");
+      return;
+    }
     localStorage.setItem(name, info);
     setMsg("signupMessage", "Account created successfully!", "success");
     setTimeout(() => {
@@ -83,9 +107,16 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // Developer unlock
+    if (name === DEV_NAME && info === DEV_INFO) {
+      setMsg("signinMessage", "Developer mode activated.", "success");
+      return;
+    }
+
     const stored = localStorage.getItem(name);
     if (stored && stored === info) {
       setMsg("signinMessage", "Signed in successfully!", "success");
+      // Redirect to main page
       setTimeout(() => {
         window.location.href = "PortFolioMain.html";
       }, 800);
