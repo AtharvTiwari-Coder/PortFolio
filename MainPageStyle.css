@@ -95,6 +95,10 @@ body {
 .message { margin-top: 10px; font-weight:600; min-height: 20px; }
 .message.success { color: #16a34a; }
 .message.error { color: #dc2626; }
+
+/* ===========================
+   Modal
+   =========================== */
 .modal {
   position: fixed;
   inset: 0;
@@ -114,7 +118,6 @@ body {
 }
 .modal-text { margin-bottom: 16px; color: #374151; }
 .modal-actions { display: flex; justify-content: flex-end; gap: 10px; }
-
 
 /* ===========================
    Developer Info
@@ -163,14 +166,26 @@ body.light {
 }
 body.dark {
   background: #0b1220;
-  color: #f1f5f9;
+  color: #ffffff; /* force all base text white */
 }
 body.dark .card {
   background: #1e293b;
-  color: #f1f5f9;
+  color: #ffffff;
 }
 body.dark .input {
   background: #0f172a;
   border: 1px solid #334155;
-  color: #f1f5f9;
+  color: #ffffff;
+}
+body.dark .label,
+body.dark .card-title,
+body.dark .nav-link,
+body.dark .message,
+body.dark .dev-title,
+body.dark .modal-text {
+  color: #ffffff !important;
+}
+body.dark .btn.ghost {
+  color: #ffffff !important;
+  border-color: #475569;
 }
