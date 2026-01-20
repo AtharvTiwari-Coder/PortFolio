@@ -189,3 +189,15 @@ body.dark .btn.ghost {
   color: #ffffff !important;
   border-color: #475569;
 }
+/* ===========================
+   Dark Mode Developer Info Fix
+   =========================== */
+body.dark .developer-info {
+  background: #1e293b;   /* darker card background */
+  color: #ffffff;        /* force all text white */
+}
+
+body.dark .developer-info .dev-title,
+body.dark .developer-info p {
+  color: #ffffff !important;
+}
