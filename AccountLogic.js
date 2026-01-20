@@ -46,12 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function switchForm(hideId, showId) {
     const hideEl = $(hideId);
     const showEl = $(showId);
-
-    // Fade out
     hideEl.classList.remove("show");
     setTimeout(() => hideEl.classList.add("hidden"), 500);
-
-    // Fade in
     showEl.classList.remove("hidden");
     setTimeout(() => showEl.classList.add("show"), 10);
   }
@@ -106,38 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setMsg("signinMessage", "Please enter name and information.", "error");
       return;
     }
-    $("btnSignIn")?.addEventListener("click", () => {
-  const name = $("signinName").value.trim();
-  const info = $("signinPassword").value;
-
-  if (!name || !info) {
-    setMsg("signinMessage", "Please enter name and information.", "error");
-    return;
-  }
-
-  const stored = localStorage.getItem(name);
-  if (stored && stored === info) {
-    setMsg("signinMessage", "Signed in successfully!", "success");
-
-    // Show modal
-    show($("staySignedInModal"));
-
-    $("stayYes").onclick = () => {
-      localStorage.setItem("currentUser", name);
-      hide($("staySignedInModal"));
-      window.location.href = "PortFolioMain.html";
-    };
-
-    $("stayNo").onclick = () => {
-      hide($("staySignedInModal"));
-      window.location.href = "PortFolioMain.html";
-    };
-
-  } else {
-    setMsg("signinMessage", "Account may be deleted or invalid information.", "error");
-  }
-});
-
 
     // Developer unlock
     if (name === DEV_NAME && info === DEV_INFO) {
@@ -148,10 +112,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const stored = localStorage.getItem(name);
     if (stored && stored === info) {
       setMsg("signinMessage", "Signed in successfully!", "success");
-      // Redirect to main page
-      setTimeout(() => {
+
+      // Show stay signed in modal
+      show($("staySignedInModal"));
+
+      $("stayYes").onclick = () => {
+        localStorage.setItem("currentUser", name);
+        localStorage.setItem("staySignedIn", "true");
+        hide($("staySignedInModal"));
         window.location.href = "PortFolioMain.html";
-      }, 800);
+      };
+
+      $("stayNo").onclick = () => {
+        localStorage.removeItem("staySignedIn");
+        localStorage.removeItem("currentUser");
+        hide($("staySignedInModal"));
+        window.location.href = "PortFolioMain.html";
+      };
+
     } else {
       setMsg("signinMessage", "Account may be deleted or invalid information.", "error");
     }
@@ -187,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loadingScreen.classList.add("hidden");
       }, 500);
     }
-  }, 60); // ~3s total
+  }, 60);
 
   // ===========================
   // Theme Toggle
@@ -205,3 +183,4 @@ document.addEventListener("DOMContentLoaded", () => {
   themeToggle.addEventListener("change", () => applyTheme(themeToggle.value));
   applyTheme("system");
 });
+
